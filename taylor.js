@@ -5,8 +5,8 @@ const chalk = require('chalk');
 let transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'quirogaserastour@gmail.com',
-    pass: 'xrvvaihydfcgwofd'
+   user: process.env.EMAIL_USER,
+   pass: process.env.EMAIL_PASS
   }
 });
 
@@ -21,8 +21,8 @@ async function checkTickets() {
   if (text !== 'Agotado') {
     console.log(chalk.green('YA HAY ENTRADAS DISPONIBLES'));
     let mailOptions = {
-      from: 'quirogaserastour@gmail.com',
-      to: 'quirogaserastour@gmail.com',
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER,
       subject: '¡Entradas disponibles!',
       text: 'Las entradas para el tour de Taylor Swift ya están disponibles. Ingresa a ' + URL
     };
