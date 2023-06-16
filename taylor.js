@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 const nodemailer = require('nodemailer');
 const chalk = require('chalk');
+require('dotenv').config();
 
 let transporter = nodemailer.createTransport({
   service: 'gmail',
